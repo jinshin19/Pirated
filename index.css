@@ -1,3 +1,5 @@
+@media screen and (max-width: 1366px) {
+
 * {
   padding: 0px;
   margin: 0px;
@@ -34,6 +36,35 @@
   font-weight: bold;
 }
 
+/** Keyframes **/
+
+@keyframes descend {
+  0% {
+    transform: translateY(-100em);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes ascend {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: translateY(-100em);
+  }
+}
+
+@keyframes clicked {
+  0% {
+    transform: scale(.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /** Hovers **/
 
 section .games-wrapper .boxes button:hover {
@@ -51,6 +82,10 @@ section .games-wrapper .boxes button:hover {
 
 .game-detail .cols-2 table td a.donate:hover {
   background: linear-gradient(to bottom right, rgb(83, 83, 252),#2f2fff,rgb(34, 34, 243));
+}
+
+.clicked {
+  animation: clicked .1s ease-in-out 1;
 }
 
 body {
@@ -250,19 +285,29 @@ section .games-wrapper .boxes hr {
 }
 
 section .games-wrapper ul {
-  display: block;
   margin: 0px;
   padding: 0px;
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; */
+  display: block;
 }
 
 section .games-wrapper ul li h4 {
   margin: 0px;
   padding: 0px;
+  width: auto;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 section .games-wrapper ul li {
   text-align: center;
-  margin: 10px 0px;
+  margin: 5px 0px;
 }
 
 section .games-wrapper ul li button {
@@ -280,7 +325,7 @@ section .games-wrapper ul li button {
 .game-detail {
   width: 90%;
   height: 90%;
-  display: flex;
+  display: none;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
@@ -292,6 +337,15 @@ section .games-wrapper ul li button {
   left: 5%;
   overflow: auto;
   border-radius: 10px;
+}
+
+.game-detail.game-detail-s {
+  display: flex;
+  animation: descend .5s ease-in-out 1;
+}
+
+.game-detail.game-detail-s.game-detail-c {
+  animation: ascend .5s ease-in-out 1;
 }
 
 .game-detail .cols-2 {
@@ -326,6 +380,12 @@ section .games-wrapper ul li button {
   width: 60%;
   border-radius: 15px;
   box-shadow: 0px 0px 2px white;
+  opacity: 0;
+  transition: .3s ease-in-out;
+}
+
+.game-detail .cols-2 img.opacity {
+  opacity: 1;
 }
 
 .game-detail .cols-2 .game-images {
@@ -376,4 +436,33 @@ section .games-wrapper ul li button {
 .game-detail .cols-2 table td a.donate {
   background: linear-gradient(to bottom right, rgb(83, 83, 252),blue,rgb(34, 34, 243));
   box-shadow: 0px 0px 5px rgb(31, 44, 109);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
