@@ -71,6 +71,21 @@ section .games-wrapper .boxes button:hover {
   background: linear-gradient(to bottom right, rgb(46, 46, 46), rgb(24, 24, 24), rgb(41, 41, 41));
 }
 
+.preview-image .cols-3:nth-child(even) .preview-image-c:hover {
+  background: rgba(14, 14, 14, 0.842);
+}
+
+.preview-image .cols-3:nth-child(odd) button:hover {
+  background: rgb(14, 14, 14);
+}
+
+
+.preview-image .cols-2:nth-child(even) img:hover {
+  border: 1px solid rgb(255, 0, 0);
+  transition: .15s ease-in-out;
+  transform: scale(.99);
+}
+
 .game-detail .cols-2 button:hover {
   background: linear-gradient(to bottom right, rgb(255, 121, 121), rgb(255, 44, 44), rgb(255, 75, 75));
   cursor: pointer;
@@ -319,6 +334,101 @@ section .games-wrapper ul li button {
   margin: auto;
   font-size: 16px;
   box-shadow: 0px 0px 2px rgb(44, 44, 44);
+  cursor: pointer;
+}
+
+/** Preview Image Section **/
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.993);
+  color: white;
+  z-index: 1;
+}
+
+.preview-image .cols-3:nth-child(even) {
+  width: 75%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+
+.preview-image .cols-3:nth-child(even) .preview-image-c {
+  position: absolute;
+  background: rgba(3, 3, 3, 0.651);
+  padding: 10px 30px;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-left: calc(75% / 2);
+  color: inherit;
+  border-radius: 100px;
+  margin-top: 50px;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.preview-image .cols-3:nth-child(even) .preview-image-c.peekaboo {
+  animation: descend .5s ease-in-out 1;
+  visibility: visible;
+}
+
+.preview-image .cols-3:nth-child(even) img {
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.preview-image .cols-3:nth-child(odd) {
+  width: 10%;
+  text-align: center;
+}
+
+.preview-image .cols-3:nth-child(odd) button {
+  cursor: pointer;
+  font-size: 2em;
+  font-weight: bold;
+  background: rgb(5, 5, 5);
+  border-radius: 20px;
+  box-shadow: 0px 0px 2px rgb(145, 145, 145);
+  padding: 15px 20px;
+  display: block;
+  margin: auto;
+  color: inherit;
+}
+
+.preview-image .cols-2:nth-child(odd) {
+  width: 100%;
+  height: 70vh;
+  text-align: center;
+}
+
+.preview-image .cols-2:nth-child(odd) img {
+  width: 80%;
+}
+
+.preview-image .cols-2:nth-child(even) {
+  width: 100%;
+  height: 25vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.preview-image .cols-2:nth-child(even) img {
+  width: 20%;
   cursor: pointer;
 }
 
