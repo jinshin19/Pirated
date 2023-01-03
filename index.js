@@ -1,9 +1,8 @@
-// Variables //
+// Variables
 
-const searchBtn = document.querySelector('.search-button');
+const btns = document.querySelectorAll('button');
 const gameDetail = document.querySelector('.game-detail');
-const gameDetailClose = document.querySelector('.game-detail-c');
-const viewBtns = document.querySelectorAll('.viewBtn');
+let onclickImages = document.querySelectorAll('img');
 let imgs = document.querySelectorAll('.img');
 
 // Array, Objects
@@ -79,18 +78,6 @@ function set(picture, screenshots, title, summary, file_name, file_size, file_ty
 
 }
 
-function disableBtn() {
-  for(viewBtn of viewBtns) {
-    viewBtn.disabled = true;
-  }
-}
-
-function enableBtn() {
-  for(viewBtn of viewBtns) {
-    viewBtn.disabled = false;
-  }
-}
-
 function onSet(value) {
   value = value.split('').filter(get => get == get.match(/\w/)).join('').toLowerCase();
 
@@ -102,31 +89,11 @@ function onSet(value) {
 
 }
 
-// OnClick Events 
+function gameDetailPanelOpen () {
 
-searchBtn.onclick = e => {
+  gameDetail.classList.add('game-detail-s');
 
-  e.target.parentElement.classList.toggle('expand')
-
-  e.target.previousElementSibling.classList.toggle('show');
-
-}
-
-viewBtns.forEach(btn => {
-
-  btn.onclick = e => {
-
-    disableBtn();
-
-    onSet(e.target.parentElement.parentElement.firstElementChild.firstElementChild.textContent);
-
-    btn.classList.add('clicked');
-
-    setTimeout(() => btn.classList.remove('clicked', 50));
-
-    gameDetail.classList.add('game-detail-s');
-    
-    gameDetail.addEventListener('animationend', opacity);
+  gameDetail.addEventListener('animationend', opacity);
 
     function opacity() {
       
@@ -140,17 +107,15 @@ viewBtns.forEach(btn => {
 
     }
 
-  }
+}
 
-})
+function gameDetailPanelClose() {
 
-gameDetailClose.onclick = e => {
-  
   getSet = getSet.filter(get => get == ppssppGameLists);
 
-  gameDetailClose.classList.add('clicked');
+  ranger.classList.add('clicked');
 
-  gameDetailClose.addEventListener('animationend', ascend);
+  ranger.addEventListener('animationend', ascend);
 
   function ascend() {
 
@@ -162,18 +127,85 @@ gameDetailClose.onclick = e => {
 
       gameDetail.removeEventListener('animationend', ascended);
 
-      gameDetailClose.removeEventListener('animationend', ascend);
+      ranger.removeEventListener('animationend', ascend);
 
       imgs.forEach(img => {
         img.classList.remove('opacity');
       })
 
-      enableBtn();
-
     }
 
-    setTimeout(() => gameDetail.classList.remove('game-detail-s') || gameDetail.classList.remove('game-detail-c') || gameDetailClose.classList.remove('clicked'), 170)
+    setTimeout(() => gameDetail.classList.remove('game-detail-s') || gameDetail.classList.remove('game-detail-c') || ranger.classList.remove('clicked'), 170)
+
+  }
+}
+
+btns.forEach(btn => {
+
+  btn.onclick = e => {
+
+    ranger = e.target;
+
+    switch(ranger == ranger) {
+
+      case ranger.textContent == '<': console.log('1st fire');
+    
+        break;
+
+      case ranger.textContent == '>': console.log('2nd fire');
+
+        break;
+
+      case ranger.textContent == 'View Details':
+
+        ranger.classList.add('clicked');
+
+        setTimeout(() => ranger.classList.remove('clicked', 50));
+
+        onSet(ranger.parentElement.parentElement.firstElementChild.firstElementChild.textContent);
+
+        gameDetailPanelOpen();
+
+        break;
+
+      case ranger.classList.contains('search-button'):
+
+        ranger.parentElement.classList.toggle('expand')
+
+        ranger.previousElementSibling.classList.toggle('show');  
+    
+        break;
+
+      case ranger.classList.contains('game-detail-c'): 
+
+        gameDetailPanelClose();
+
+        break;
+      
+      default: alert(ranger);
+  }
 
   }
 
-}
+})
+
+onclickImages.forEach(onImg => {
+
+  onImg.onclick = e => {
+
+    scan = e.target;
+
+    switch(scan == scan) {
+
+      case scan == ppssppGameLists.filter(getScan => getScan.Screenshots == scan.value): alert('WORKING!') ;
+
+        break;
+
+      // An idea popped up into my head and that idea is to use switch. Now I'm using it. 
+      // Next is to make a functionality for the images when clicked and that's for tomorow because the time now is 11:23pm sheesh I need to sleep
+
+    }
+
+  }
+
+})
