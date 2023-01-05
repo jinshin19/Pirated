@@ -56,6 +56,28 @@
   }
 }
 
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(100em);
+    position: fixed;
+  }
+  100% {
+    transform: none;
+    position: fixed;
+  }
+}
+
+@keyframes slideToRight {
+  0% {
+    transform: none;
+    position: fixed;
+  }
+  100% {
+    transform: translateX(100em);
+    position: fixed;
+  }
+}
+
 @keyframes clicked {
   0% {
     transform: scale(.9);
@@ -79,12 +101,18 @@ section .games-wrapper .boxes button:hover {
   background: rgb(27, 27, 27);
 }
 
-
+.game-detail .cols-2 .img-preview:hover {
+  transform: scale(.995);
+  transition: .15s ease-in-out;
+  opacity: .8;
+  cursor: pointer;
+}
 .preview-image .cols-2:nth-child(even) img:hover {
   border: 1px solid rgb(255, 0, 0);
   transition: .15s ease-in-out;
   transform: scale(.99);
   opacity: .8;
+  cursor: pointer;
 }
 
 .game-detail .cols-2 button:hover {
@@ -303,11 +331,6 @@ section .games-wrapper .boxes hr {
 section .games-wrapper ul {
   margin: 0px;
   padding: 0px;
-  /* display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center; */
   display: block;
 }
 
@@ -346,15 +369,23 @@ section .games-wrapper ul li button {
   position: fixed;
   top: 0;
   left: 0;
-  display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background: rgba(0, 0, 0, 0.966);
+  background: rgba(0, 0, 0, 0.995);
   color: white;
-  z-index: 1;
+  z-index: 5;
   display: none;
+}
+
+.preview-image.slideFromRight {
+  display: flex;
+  animation: slideFromRight .5s ease-in-out 1;
+}
+
+.preview-image.slideFromRight.slideToRight {
+  animation: slideToRight .5s ease-in-out 1;
 }
 
 .preview-image .cols-3:nth-child(even) {
@@ -379,16 +410,21 @@ section .games-wrapper ul li button {
   border-radius: 100px;
   margin-top: 50px;
   cursor: pointer;
-  visibility: hidden;
+  transform: translateY(-100em);
+  transition: .5s ease-in-out;
 }
 
 .preview-image .cols-3:nth-child(even) .preview-image-c.peekaboo {
-  animation: descend .5s ease-in-out 1;
-  visibility: visible;
+  transform: none;
 }
 
 .preview-image .cols-3:nth-child(even) img {
   border: 1px solid rgb(255, 255, 255);
+  opacity: 0;
+}
+
+.preview-image .cols-3:nth-child(even) img.opacity {
+  opacity: 1;
 }
 
 .preview-image .cols-3:nth-child(odd) {
@@ -417,6 +453,7 @@ section .games-wrapper ul li button {
 .preview-image .cols-2:nth-child(odd) img {
   width: 80%;
   border-radius: 10px;
+  transition: 1s ease-in-out;
 }
 
 .preview-image .cols-2:nth-child(even) {
@@ -432,6 +469,12 @@ section .games-wrapper ul li button {
 .preview-image .cols-2:nth-child(even) img {
   width: 20%;
   cursor: pointer;
+}
+
+.preview-image .cols-2:nth-child(even) img.selected {
+  border: 2px solid rgb(50, 231, 50);
+  transform: scale(.95);
+  border-radius: 10px;
 }
 
 .game-detail {
