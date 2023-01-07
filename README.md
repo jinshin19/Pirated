@@ -1,7 +1,10 @@
 # Pirated
 
- - Is a website where you can download ppsspp games, rom, retro games and more.
+ - This website is not yet available for downloading. 
 
- - This is also my personal website.
+ - This is only availble for <b>Viewing</b> & testing the <b>Functionalities<b>.
 
  - Ongoing.
+
+# Goal :
+- Pirated is a website where you can download emulator games, Roms, Retro Games, Apks and so on.
