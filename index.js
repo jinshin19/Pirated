@@ -6,6 +6,8 @@ const gameDetail = document.querySelector('.game-detail');
 const previewImage = document.querySelector('.preview-image');
 const images = document.querySelectorAll('.img-preview');
 const images2 = document.querySelectorAll('.images');
+let _items = document.querySelectorAll('.search-wrapper, .search-list, .a1, .game-detail');
+let __items = document.querySelectorAll('body, nav');
 let imgs = document.querySelectorAll('.img');
 let path = /^.*[\\\/]/;
 let num = 0;
@@ -13,11 +15,77 @@ let x = [];
 
 // Array, Objects
 
-values = [];
+let color = JSON.parse(localStorage.getItem('color')) || [];
+
+let values = [];
 
 let getSet = [];
 
 // Regular Functions
+
+function color_scheme() {
+
+  let 
+    boxes_shadow = 'boxes-shadow',
+    _body = 'body',
+    _moon = 'moon',
+    _rotate = 'rotate',
+    search_w = 'search-w',
+    font_color = 'font-color',
+    controller_icon = 'controller-icon-w.png',
+    warning_icon = 'warning-icon-w.png';
+
+  ranger.classList.toggle('moon');
+
+  if(ranger.classList.contains('moon')) {
+
+    boxes = document.querySelectorAll('.boxes, .viewBtn');
+
+    color.push(boxes_shadow, _body, _moon, _rotate, search_w, font_color, controller_icon, warning_icon);
+
+    localStorage.setItem('color', JSON.stringify(color));
+
+    boxes.forEach(box => box.classList.add('boxes-shadow'));
+
+    _items.forEach(item => item.classList.add('boxes-shadow'));
+
+    __items.forEach(item => item.classList.add(_body));
+  
+    document.querySelector('.a1').classList.add(_rotate);
+  
+    document.querySelector('.search-button').classList.add(search_w);
+  
+    searchInput.classList.add(font_color);
+  
+    document.querySelector('.controller-icon').src = 'icons/' + controller_icon;
+  
+    document.querySelector('.warning-icon').src = 'icons/' + warning_icon;
+
+  } else {
+
+    boxes.forEach(box => box.classList.remove('boxes-shadow'));
+
+    _items.forEach(item => item.classList.remove(boxes_shadow));
+
+    __items.forEach(item => item.classList.remove(_body));
+  
+    document.querySelector('.a1').classList.remove(_rotate);
+  
+    document.querySelector('.search-button').classList.remove(search_w);
+  
+    searchInput.classList.remove(font_color);
+  
+    document.querySelector('.controller-icon').src = 'icons/controller-icon.png';
+  
+    document.querySelector('.warning-icon').src = 'icons/warning-icon-b.png';
+
+    localStorage.clear();
+
+    color = color.filter(color => color == values);
+
+  }
+
+}
 
 function set(picture, screenshots, title, summary, file_name, file_size, file_type, region, language, genre, download_link) {
 
@@ -101,7 +169,7 @@ function createElement() {
 
   for(let i = 0; i < ppssppGameLists.length; i++) {
 
-    boxes = document.createElement('boxes');
+    boxes = document.createElement('div');
     boxImg = document.createElement('img');
     hr = document.createElement('hr');
     ul = document.createElement('ul');
@@ -154,7 +222,37 @@ function createElement() {
 }
 
 window.onload = () => {
-  createElement();
+
+  document.URL == 'http://127.0.0.1:5500/games.html' || document.URL == 'https://jinshin19.github.io/Pirated/games.html' ? createElement() : false;
+
+  if(color.length > 0) {
+
+    boxes = document.querySelectorAll('.boxes, .viewBtn');
+
+    boxes.forEach(box => box.classList.add(color[0]));
+
+    _items.forEach(item => item.classList.add(color[0]));
+
+    __items.forEach(item => item.classList.add(color[1]));
+
+    document.querySelector('.a1').firstElementChild.classList.add(color[2]);
+  
+    document.querySelector('.a1').classList.add(color[3]);
+  
+    document.querySelector('.search-button').classList.add(color[4]);
+  
+    searchInput.classList.add(color[5]);
+  
+    document.querySelector('.controller-icon').src = 'icons/' + color[6];
+  
+    document.querySelector('.warning-icon').src = 'icons/' + color[7];
+
+  } else {
+
+    localStorage.clear();
+
+  }
+
 }
 
 function gameDetailPanelOpen () {
@@ -510,10 +608,11 @@ btns.forEach(btn => {
 
         ranger.previousElementSibling.classList.toggle('show');
 
-        if(ranger.previousElementSibling.value.length > 0) document.querySelector('.search-box-result').classList.add('show');
+        if(ranger.previousElementSibling.value.length > 0) 
+        document.querySelector('.search-box-result').classList.add('show');
         
         searchBoxResults();
-
+      
         false;
         
         break;
@@ -553,6 +652,10 @@ btns.forEach(btn => {
           }, 300);
 
         }
+
+        break;
+
+      case ranger.classList.contains('color-scheme'): color_scheme();
 
         break;
       
@@ -608,4 +711,9 @@ document.querySelector('.search-box-result').onmousemove = e => {
   if(e.clientY < 280) return document.querySelector('.search-box-c').classList.add('peekaboo');
   return document.querySelector('.search-box-c').classList.remove('peekaboo');;
 
+}
+
+
+window.onscroll = e => {
+ // I'm planning to add Scroll Event
 }
