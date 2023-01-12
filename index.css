@@ -411,7 +411,7 @@ section .games-wrapper {
 }
 
 section .games-wrapper .boxes {
-  width: 240px;
+  width: 250px;
   height: auto;
   box-shadow: 0px 0px 3px black;
   padding: 10px;
