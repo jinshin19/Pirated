@@ -135,7 +135,7 @@ function onSet(value) {
   value = value.split('').filter(get => get == get.match(/\w/)).join('').toLowerCase();
 
   getSet = ppssppGameLists.filter(get => {
-    return get.Name == value;
+    return get.Title.replace(/[\W\s]/gm, '').toLowerCase() == value;
   })
 
   set(getSet[0].Main_Picture, getSet[0].Screenshots, getSet[0].Title, getSet[0].Summary, getSet[0].File_Name, getSet[0].File_Size, getSet[0].File_Type, getSet[0].Region, getSet[0].Language, getSet[0].Genre, getSet[0].Download_Link);
@@ -180,6 +180,7 @@ function createElement() {
     button = document.createElement('button');
     //
     boxes.classList.add('boxes');
+    boxes.id = 'test';
     button.classList.add('viewBtn');
     button.type = 'button';
     //
@@ -253,6 +254,34 @@ window.onload = () => {
 
   }
 
+  // if(ppssppGameLists.filter(t => t.Main_Picture == '').length > 0) {
+
+  //   /// TESTING FETCH
+
+  //   fetch('https://archive.org/download/dragon-ball-z-shin-budokai_202103/Dragon%20Ball%20Z%20Shin%20Budokai.jpg').then(response => {
+
+  //     return response.blob();
+
+  //   }).then(blob => {
+
+  //     list = document.querySelectorAll('#test');
+
+  //     list.forEach(each => {
+
+  //       if(each.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.textContent == 'Dragon Ball') 
+
+  //      return each.firstElementChild.src = URL.createObjectURL(blob)
+
+  //     })
+
+  //   })
+    
+  // } else {
+
+  //   return console.log('Did Not Match Any');
+  
+  // }
+  
 }
 
 function gameDetailPanelOpen () {
@@ -413,6 +442,7 @@ function previewImageClose() {
 function appendList(val) {
 
   searchList = document.querySelector('.search-list');
+
   list = document.querySelectorAll('.list');
 
   for(i = 0; i < x.length; i++) {
@@ -429,7 +459,7 @@ function appendList(val) {
 
     anchor.onclick = e => {
 
-      if(ppssppGameLists.filter(get => get.name == e.target.textContent.toLowerCase())) {
+      if(ppssppGameLists.filter(get => get.Main_Picture == e.target.textContent.toLowerCase())) {
 
         e.target.classList.add('clicked');
 
@@ -556,10 +586,10 @@ searchInput.onkeyup = e => {
 
     x = ppssppGameLists.filter(value => {
 
-      return value.Name.indexOf(e.target.value.toLowerCase().replace(/\W[_]*/, '')) > -1; 
+      return value.Title.toLowerCase().replace(/[\W\s]*/gm, '').indexOf(e.target.value.replace(/[\W\s]*/gm, '').toLowerCase()) > -1;
 
     })
-
+    
     appendList(e.target.value);
 
   } else if(searchInput.value.length == 0) {
@@ -713,7 +743,3 @@ document.querySelector('.search-box-result').onmousemove = e => {
 
 }
 
-
-window.onscroll = e => {
- // I'm planning to add Scroll Event
-}
