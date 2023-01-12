@@ -4,6 +4,8 @@
 
  - This is only available for <b>Viewing</b> & testing the <b>Functionalities<b>.
 
+ - This website will be updated often due to some external matters IRL.
+
  - Ongoing.
 
  - This is the demo link <a href="https://jinshin19.github.io/Pirated/"><b>VIEW</b></a>
