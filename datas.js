@@ -15,8 +15,7 @@ class Datas {
     region,
     language,
     genre,
-    download_link,
-    name
+    download_link
   ) 
   {
 
@@ -31,7 +30,6 @@ class Datas {
     this.language = language;
     this.genre = genre;
     this.download_link = download_link;
-    this.name = name;
     this.push
     (
       main_picture, 
@@ -45,7 +43,6 @@ class Datas {
       language,
       genre,
       download_link,
-      name
     );
 
     ppssppGameLists.sort((a,b) => a.Title > b.Title ? 1 : -1);
@@ -64,8 +61,7 @@ class Datas {
     Region,
     Language,
     Genre,
-    Download_Link,
-    Name
+    Download_Link
   )
   {
     
@@ -81,8 +77,7 @@ class Datas {
       Region,
       Language,
       Genre,
-      Download_Link,
-      Name
+      Download_Link
     })
 
   }
@@ -125,10 +120,7 @@ const data1 = new Datas
   'Action-Adventure, Stealth',
 
   // Download Link
-  '#',
-
-  // Name
-  'assassinscreedbloodlines'
+  '#'
 )
 
 const data2 = new Datas
@@ -164,10 +156,7 @@ const data2 = new Datas
   'Action Hack and slash, Fighting Beat em up',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'basarachronicleheroes'
+  '#'
 )
 
 const data3 = new Datas
@@ -203,10 +192,7 @@ const data3 = new Datas
   'Platform, Adventure',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'castlevaniathedraculaxchronicles'
+  '#'
 )
 
 const data4 = new Datas
@@ -242,10 +228,7 @@ const data4 = new Datas
   'Action-Adventure, Hack \'N Slash',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'dantesinferno'
+  '#'
 )
 
 const data5 = new Datas
@@ -281,10 +264,7 @@ const data5 = new Datas
   'Fighting Game, Action Game',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'defjamfightfornewyork'
+  '#'
 )
 
 const data6 = new Datas
@@ -320,10 +300,7 @@ const data6 = new Datas
   'Action-Role-Playing, Action-Adventure',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'finalfantasyviicrisiscore'
+  '#'
 )
 
 const data7 = new Datas
@@ -359,10 +336,7 @@ const data7 = new Datas
   'Fighting, Adventure, Action',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'finalfantasydissidia'
+  '#'
 )
 
 const data8 = new Datas
@@ -398,10 +372,7 @@ const data8 = new Datas
   'Action Role-Playing, Adventure',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'godeater2japan'
+  '#'
 )
 
 const data9 = new Datas
@@ -437,10 +408,7 @@ const data9 = new Datas
   'Action Role-Playing, Adventure',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'godeaterburst'
+  '#'
 )
 
 const data10 = new Datas
@@ -476,10 +444,7 @@ const data10 = new Datas
   'Action-Adventure Game, Hack \'N Slash',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'godofwarchainofolympus'
+  '#'
 )
 
 const data11 = new Datas
@@ -515,10 +480,7 @@ const data11 = new Datas
   'Action-Adventure Game, Hack \'N Slash',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'godofwarghostofsparta'
+  '#'
 )
 
 const data12 = new Datas
@@ -554,10 +516,7 @@ const data12 = new Datas
   'Action-Adventure Game, Action Role-Playing',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'kingdomheartsbirthbysleep'
+  '#'
 )
 
 const data13 = new Datas
@@ -593,10 +552,7 @@ const data13 = new Datas
   'Action-Adventure Game, Action Role-Playing',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'monsterhunterfreedomunite'
+  '#'
 )
 
 const data14 = new Datas
@@ -632,10 +588,7 @@ const data14 = new Datas
   'Racing, Adventure',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'needforspeedmostwanted'
+  '#'
 )
 
 const data15 = new Datas
@@ -671,10 +624,7 @@ const data15 = new Datas
   'Action-Adventure, Fighting Game',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'narutoshippudenultimateninjaimpact'
+  '#'
 )
 
 const data16 = new Datas
@@ -710,10 +660,7 @@ const data16 = new Datas
   'Action-Adventure Game, Action Role-Playing',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'princeofpersiarivalswords'
+  '#'
 )
 
 const data17 = new Datas
@@ -749,10 +696,7 @@ const data17 = new Datas
   'Action-Adventure Game, Action Role-Playing',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'swordartonlineinfinitymoments'
+  '#'
 )
 
 const data18 = new Datas
@@ -788,10 +732,7 @@ const data18 = new Datas
   'Action-Adventure Game, Survival Horror',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'silenthillorigin'
+  '#'
 )
 
 const data19 = new Datas
@@ -827,10 +768,7 @@ const data19 = new Datas
   'Action, Fighting, PVP',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'tekken6'
+  '#'
 )
 
 const data20 = new Datas
@@ -866,10 +804,7 @@ const data20 = new Datas
   'Action-Adventure Game, Action Role-Playing',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'thethirdbirthday'
+  '#'
 )
 
 const data21 = new Datas
@@ -905,12 +840,8 @@ const data21 = new Datas
   'Action-Adventure Game, Fighting',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'thewarriors'
+  '#'
 )
-
 
 const data22 = new Datas
 (
@@ -945,28 +876,44 @@ const data22 = new Datas
   'Action-Adventure Game, Fighting',
   
   // Download_Link
-  'www.facebook.com',
-  
-  // name
-  'monsterhunterportable3rd'
+  '#'
 )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// const data23 = new Datas
+// (
+//   // Main Picture
+//   '',
+    
+//   // Screenshots
+//   ['mhp1.jpg', 'mhp2.png', 'mhp1.jpg', 'mhp2.png'],
+    
+//   // Title
+//   'Dragon Ball',
+    
+//   // Summary
+//   '',
+    
+//   // File_Name
+//   'the-warriors.iso',
+    
+//   // File_Size
+//   '',
+    
+//   // File_Type
+//   'ISO',
+  
+//   // Region
+//   'United States',
+  
+//   // Language
+//   'English, Europe, Japanese',
+  
+//   // Genre
+//   'Action-Adventure Game, Fighting',
+  
+//   // Download_Link
+//   '#'
+// )
 
 
 // const sample = new Datas
