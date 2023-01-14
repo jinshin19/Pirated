@@ -127,6 +127,14 @@ nav .search-list button:hover {
   text-decoration: underline;
 }
 
+.report-wrapper .report-wrapper-c:hover {
+  background: rgb(19, 19, 19);
+}
+
+.report-wrapper form .gName-wrapper .gNameResult:hover {
+  background: rgb(14, 14, 14);
+}
+
 section .games-wrapper .boxes button:hover {
   background: linear-gradient(to bottom right, rgb(46, 46, 46), rgb(24, 24, 24), rgb(41, 41, 41));
   box-shadow: 0px 0px 2px rgb(221, 221, 221);
@@ -137,8 +145,7 @@ section .games-wrapper .boxes button:hover {
 }
 
 .search-box-result .search-box-c:hover {
-  box-shadow: 0px 0px 5px rgb(201, 201, 201);
-  background: linear-gradient(to bottom right, rgb(238, 238, 238), white, rgb(216, 216, 216));
+  background: linear-gradient(to bottom right, rgb(247, 56, 56), rgb(248, 42, 42), rgb(236, 26, 26));
 }
 
 .search-box-result .search-box-result-wrapper .boxes:hover {
@@ -179,6 +186,16 @@ section .games-wrapper .boxes button:hover {
 
 .clicked {
   animation: clicked .1s ease-in-out 1;
+}
+
+/** Colors **/
+
+.fgreen {
+  color: rgb(53, 255, 53);
+}
+
+.fred {
+  color: rgb(255, 10, 10);
 }
 
 body {
@@ -302,7 +319,7 @@ nav .search-wrapper button {
   z-index: 1;
 }
 
-nav a {
+nav a, nav .report {
   color: inherit;
   text-transform: uppercase;
   display: flex;
@@ -313,12 +330,18 @@ nav a {
   font-family: poppins-r;
 }
 
+nav .report {
+  background: transparent;
+  font-size: inherit;
+  cursor: pointer;
+}
+
 nav a .controller-icon {
   width: 1.05em;
   margin-right: 3px;
 }
 
-nav a .warning-icon{
+nav .report .warning-icon{
   width: .85em;
 }
 
@@ -329,7 +352,8 @@ nav .logo {
 }
 
 nav .search-wrapper,
-nav ul li a {
+nav ul li a,
+nav .report {
   margin: 0px 25px;
 }
 
@@ -348,6 +372,226 @@ nav ul li .a1 button {
   height: 1.5em;
   display: block;
   cursor: pointer;
+}
+
+.report-wrapper {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.950);
+  z-index: 1;
+  display: none;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: inherit;
+}
+
+.report-wrapper.report-wrapper-s {
+  display: flex;
+}
+
+.report-wrapper.report-wrapper-s.descend {
+  animation: descend .5s ease-in-out 1;
+}
+
+.report-wrapper.report-wrapper-s.ascend {
+  animation: ascend .5s ease-in-out 1;
+}
+
+.report-wrapper .report-wrapper-c {
+  position: absolute;
+  right: 50px;
+  top: 30px;
+  font-family: poppins-b;
+  padding: 10px 20px;
+  border-radius: 100px;
+  display: block;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: inherit;
+  background: transparent;
+  box-shadow: 0px 0px 2px white;
+  transform: translateY(-50em);
+  transition: .5s ease-in-out;
+}
+
+.report-wrapper .report-wrapper-c.peekaboo {
+  transform: none;
+}
+
+.report-wrapper form {
+  width: 35%;
+  max-height: 100%;
+  box-shadow: 0px 0px 2px white;
+  background: linear-gradient(to bottom right, rgb(0,0,0), rgb(10, 10, 10), black);
+  text-align: center;
+  font-family: poppins-l;
+  font-size: 14px;
+  overflow: auto;
+  border-radius: 10px;
+  display: none;
+  opacity: 0;
+  position: fixed;
+  padding: 0px 0px 20px;
+}
+
+.report-wrapper form.form-s {
+  display: block;
+  opacity: 1;
+}
+
+.report-wrapper form.form-s.slideFromRight {
+  animation: slideFromRight .5s ease-in-out 1;
+}
+
+.report-wrapper form.form-s.slideToRight {
+  animation: slideToRight .5s ease-in-out 1;
+}
+
+.report-wrapper .subject {
+  width: 90%;
+  padding: 10px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.report-wrapper .subject h4 {
+  width: auto;
+  font-size: 16px;
+  font-family: poppins-b;
+  margin-right: 10px;
+}
+
+.report-wrapper .subject select {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: poppins-b;
+  text-transform: uppercase;
+  background: rgb(18, 124, 41);
+  color: inherit;
+  transition: .2s ease-in-out;
+  cursor: pointer;
+}
+
+.report-wrapper .subject select:focus {
+  border-radius: 5px 5px 0px 0px;
+}
+
+.report-wrapper .subject select option {
+  display: block;
+}
+
+.report-wrapper h2 {
+  padding: 20px 0px;
+}
+
+.report-wrapper p {
+  width: 90%;
+  margin: auto;
+  padding: 0px 0px 20px;
+  line-height: 160%;
+}
+
+.report-wrapper form input,
+.report-wrapper form textarea {
+  padding: 10px 15px;
+  margin: 10px 0px;
+  border-radius: 10px;
+  width: 90%;
+  background: rgb(44, 44, 44);
+  color: inherit;
+  box-shadow: 0px 0px 2px white;
+  letter-spacing: .5px;
+}
+
+.report-wrapper form input[type=email] {
+  text-transform: lowercase;
+}
+
+.report-wrapper form input[type=email]::placeholder {
+  text-transform: initial;
+}
+
+.report-wrapper form input.hide {
+  display: none;
+}
+
+.report-wrapper form .gName-wrapper {
+  position: relative;
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.report-wrapper form .gName-wrapper .gNameResult {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: -33px;
+  width: 90%;
+  padding: 15px 0px;
+  border-radius: 0px 0px 10px 10px;
+  background: rgb(27, 27, 27);
+  color: inherit;
+  cursor: pointer;
+  display: none;
+}
+
+.report-wrapper form .gName-wrapper .gNameResult.gNameResult-s {
+  display: block;
+}
+
+.report-wrapper form .gName-wrapper .gNameResult.gNameResult-s:focus {
+  background: rgb(14, 14, 14);
+  box-shadow: 0px 0px 1px rgb(255, 255, 255);
+}
+
+.report-wrapper form .submit {
+  background: rgb(18, 124, 41);
+  padding: 10px 0px;
+  color: inherit;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.report-wrapper form textarea {
+  resize: none;
+  height: 100px;
+  padding: 10px;
+  word-break:break-all;
+}
+
+.report-wrapper form input::placeholder,
+.report-wrapper form textarea::placeholder {
+  text-align: center;
+  color: rgb(122, 122, 122);
+}
+
+.report-wrapper form input.fred::placeholder {
+  color: rgb(255, 10, 10);
+}
+
+/** Validation Colors **/
+
+.report-wrapper form input.green {
+  box-shadow: 0px 0px 3px rgb(48, 255, 58);
+}
+
+.report-wrapper form input.red {
+  box-shadow: 0px 0px 3px rgb(255, 48, 48);
+}
+
+.report-wrapper form input.orange {
+  box-shadow: 0px 0px 3px rgb(255, 165, 48);
 }
 
 header {
@@ -541,18 +785,18 @@ section .games-wrapper ul li button {
 
 .search-box-result .search-box-c {
   position: absolute;
-  background: rgba(253, 253, 253, 0.938);
-  padding: 10px 30px;
-  font-size: 1.2em;
-  font-weight: bold;
+  background: linear-gradient(to bottom right, rgb(241, 46, 46), rgb(255, 14, 14), rgb(216, 10, 10));
+  box-shadow: 0px 0px 5px rgb(240, 73, 73);
+  font-size: 1em;
   right: 0;
   margin-right: 40px;
   color: inherit;
-  border-radius: 100px;
   cursor: pointer;
   transition: .5s ease-in-out;
-  color: black;
   transform: translateY(-100em);
+  font-family: poppins-b;
+  padding: 10px 20px;
+  border-radius: 100px;
 }
 
 .search-box-result .search-box-c.peekaboo {
@@ -610,17 +854,17 @@ section .games-wrapper ul li button {
 .preview-image .cols-3:nth-child(even) .preview-image-c {
   position: absolute;
   background: rgba(3, 3, 3, 0.651);
-  padding: 10px 30px;
-  font-size: 1.2em;
-  font-weight: bold;
   margin-left: calc(75% / 2);
   color: inherit;
-  border-radius: 100px;
   margin-top: 50px;
   cursor: pointer;
   transform: translateY(-100em);
   transition: .5s ease-in-out;
   box-shadow: 0px 0px 2px white;
+  font-family: poppins-b;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-size: 1.2em;
 }
 
 .preview-image .cols-3:nth-child(even) .preview-image-c.peekaboo {
