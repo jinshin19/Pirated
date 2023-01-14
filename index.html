@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-71M0QYN05R"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -9,11 +9,12 @@
     gtag('js', new Date());
 
     gtag('config', 'G-71M0QYN05R');
-    </script>
+    </script> -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="datas.js" defer></script>
     <script src="index.js" defer></script>
+    <script src="send.js" defer></script>
     <link rel="stylesheet" href="index.css">
     <title> Pirated Home </title>
   </head>
@@ -33,11 +34,45 @@
         <a href="games.html" class="games"><img class="controller-icon" src="icons/controller-icon.png"> Games </a>
       </li>
       <li>
-        <a href="" class="report"><img class="warning-icon" src="icons/warning-icon-b.png"> Report </a>
+        <button type="button" class="report"><img class="warning-icon" src="icons/warning-icon-b.png"> Report </button>
       </li>
       <li><span class="a1"><button type="button" class="color-scheme"></button></span></li>
     </ul>
   </nav>
+
+  <div class="report-wrapper">
+
+    <button type="button" class="report-wrapper-c">x</button>
+
+    <form method="post" class="report-form">
+
+      <h2> Make a report </h2>
+      <p> 
+        Inlude the name of the game's broken download link <br> ( e.g : Assassin's Creed : Bloodline ) <br> Or <br> Copy & paste the broken game download link.
+      </p>
+      <div class="subject">
+        <h4>Subject:</h4>
+        <select name="selected">
+          <option>Report</option>
+          <option>Message</option>
+          <option>Request</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="gName-wrapper">
+        <input type="text" name="gname" placeholder="Game Name ( Paste the link )">
+        <input type="text" name="rname" placeholder="" class="hide">
+        <button type="button" class="gNameResult"></button>
+      </div>
+      <input type="text" name="fname" placeholder="Firstname">
+      <input type="text" name="lname" placeholder="Lastname">
+      <input type="email" name="email" placeholder="Email">
+      <textarea type="text" name="text" placeholder="Your Message Here ( OPTIONAL )"></textarea>
+      <input type="button" class="submit" value="Submit">
+
+    </form>
+
+  </div>
 
   <div class="search-box-result">
       
@@ -141,6 +176,6 @@
   <footer>
 
   </footer>
-
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
 </body>
 </html>
