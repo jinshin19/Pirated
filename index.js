@@ -1,11 +1,20 @@
 // Variables
 
+const All_Inputs = document.querySelectorAll('input');
+const reportform = document.querySelector('.report-form');
 const btns = document.querySelectorAll('button');
 const searchInput = document.querySelector('.search-input');
 const gameDetail = document.querySelector('.game-detail');
 const previewImage = document.querySelector('.preview-image');
 const images = document.querySelectorAll('.img-preview');
 const images2 = document.querySelectorAll('.images');
+let _selected = reportform['selected'];
+const rName = reportform['rname'];
+const gName = reportform['gname'];
+const fName = reportform['fname'];
+const lName = reportform['lname'];
+const _email = reportform['email'];
+const _message = reportform['text'];
 let _items = document.querySelectorAll('.search-wrapper, .search-list, .a1, .game-detail');
 let __items = document.querySelectorAll('body, nav');
 let imgs = document.querySelectorAll('.img');
@@ -221,6 +230,209 @@ function createElement() {
   }
 
 }
+
+// Validation
+
+function clearReportInput() {
+
+  gName.value = '';
+  fName.value = '';
+  lName.value = '';
+  _email.value = '';
+  _message.value = '';
+  _selected.value = 'Report';
+
+  gName.classList.remove('green');
+  gName.classList.remove('red');
+  _email.classList.remove('green');
+  _email.classList.remove('red');
+  _email.classList.remove('orange');
+
+  document.querySelector('.gNameResult').innerText = '';
+      
+  document.querySelector('.gNameResult').classList.remove('gNameResult-s');
+
+}
+
+function Game_Name_Validation() {
+
+  gName.placeholder = 'Game Name ( Paste the link )';
+
+  gName.classList.remove('red');
+
+  gName.classList.remove('fred');
+
+  gName.onkeyup = e => {
+
+    game_title_result = ppssppGameLists.filter(ppsspp => {
+  
+      return ppsspp.Title.toLowerCase().replace(/[\W\s]*/gm, '').indexOf(e.target.value.toLowerCase().replace(/[\W\s]*/gm, '')) > -1;
+  
+    });
+
+    game_link_result = ppssppGameLists.filter(link => {
+
+      return link.Download_Link.toLowerCase().replace(/[\W\s]*/g, '').indexOf(e.target.value.toLowerCase().replace(/[\W\s]*/gm, '')) > -1;
+
+    });
+
+    if(gName.value.length > 0) {
+
+      if(game_title_result.length == 1) {
+        
+        if(game_title_result[0].Title.toLowerCase().replace(/[\W\s]*/g,'') == e.target.value.toLowerCase().replace(/[\W\s]*/g,'')) {
+
+          gName.classList.remove('orange');
+              
+          gName.classList.remove('red');
+      
+          gName.classList.add('green');
+      
+          document.querySelector('.gNameResult').innerText = '';
+      
+          document.querySelector('.gNameResult').classList.remove('gNameResult-s');
+      
+        } else {
+
+          gName.classList.remove('orange');
+              
+          gName.classList.add('red');
+      
+          gName.classList.remove('green');
+
+          document.querySelector('.gNameResult').innerText = game_title_result[0].Title;
+      
+          document.querySelector('.gNameResult').classList.add('gNameResult-s');
+
+        };
+  
+      } else if(game_link_result.length == 1) {
+
+        if(game_link_result[0].Download_Link.toLowerCase().replace(/[\W\s]*/g,'') == e.target.value.toLowerCase().replace(/[\W\s]*/g,'')) {
+
+          gName.classList.remove('orange');
+              
+          gName.classList.remove('red');
+      
+          gName.classList.add('green');
+      
+          document.querySelector('.gNameResult').innerText = '';
+      
+          document.querySelector('.gNameResult').classList.remove('gNameResult-s');
+      
+        } else {
+
+          gName.classList.remove('orange');
+              
+          gName.classList.add('red');
+      
+          gName.classList.remove('green');
+
+        };
+  
+      } else {
+
+        gName.classList.add('orange');
+              
+        gName.classList.remove('red');
+      
+        gName.classList.remove('green');
+  
+        document.querySelector('.gNameResult').innerText = '';
+      
+        document.querySelector('.gNameResult').classList.remove('gNameResult-s');
+  
+      }
+
+    } else {
+
+      gName.classList.remove('orange');
+              
+      gName.classList.remove('red');
+      
+      gName.classList.remove('green');
+  
+      document.querySelector('.gNameResult').innerText = '';
+      
+      document.querySelector('.gNameResult').classList.remove('gNameResult-s');
+
+      game_title_result = ppssppGameLists.filter(van => van.Title == x);
+
+      game_link_result = ppssppGameLists.filter(van => van.Download_Link == x);
+
+    }
+
+  }
+
+}
+
+function Email_Validation() {
+
+  _selected.value == 'Report' ? _email.placeholder = 'Email ( Be notified if the link is fixed - Optional )'  : _selected.value == 'Message' ? _email.placeholder = 'Email ( Required )' : '';
+
+  _email.classList.remove('red');
+
+  _email.classList.remove('fred');
+
+  email_regex = /^[a-z0-9.]*(@gmail\.com|@yahoo\.com)$/gm;
+
+  _email.onkeyup = e => {
+
+    email_value_length = e.currentTarget.value.length;
+
+    switch(email_value_length == email_value_length) {
+
+      case email_value_length == 0: 
+      
+        _email.classList.remove('green');
+
+        _email.classList.remove('red');
+
+        _email.classList.remove('orange');
+  
+          break;
+      
+      case email_value_length > 10: 
+      
+        if(_email.value.toLowerCase().match(email_regex)) {
+
+          _email.classList.add('green');
+
+          _email.classList.remove('red');
+
+          _email.classList.remove('orange');
+
+        } else {
+
+          _email.classList.remove('green');
+
+          _email.classList.remove('orange');
+
+          _email.classList.add('red');
+
+        }
+  
+          break;
+  
+      case email_value_length > 1 < 10:
+
+        _email.classList.remove('green');
+
+        _email.classList.add('orange');
+
+        _email.classList.remove('red');
+  
+          break;
+  
+      default: false;
+  
+    }
+
+  }
+
+}
+
+// Window Onload 
 
 window.onload = () => {
 
@@ -576,6 +788,80 @@ function searchBoxResults() {
 
 }
 
+function reportOpen() {
+  
+  if(_selected.value.toLowerCase() == 'report') {
+
+    reportform.firstElementChild.textContent = ' Make a ' + _selected.value.toLowerCase();
+
+    reportStr = `Inlude the name of the game's broken download link <br> ( e.g : Assassin's Creed : Bloodline ) <br> Or <br>
+    Copy & paste the broken game download link.`;
+  
+    document.querySelector('.report-form').firstElementChild.nextElementSibling.innerHTML = reportStr;
+  
+    fName.classList.add('hide');
+
+    lName.classList.add('hide');
+  
+    gName.classList.remove('hide');
+  
+    gName.placeholder = 'Game Name ( Paste the link )';
+  
+    _email.placeholder = 'Email ( Be notified if the link is fixed - Optional )';
+
+  }
+
+  document.querySelector('.report-wrapper').classList.add('report-wrapper-s');
+  document.querySelector('.report-wrapper').classList.add('descend');
+
+  document.querySelector('.report-wrapper').addEventListener('animationend', slideFromRight);
+
+  function slideFromRight() {
+
+    document.querySelector('.report-form').classList.add('form-s');
+    document.querySelector('.report-form').classList.add('slideFromRight');
+    document.querySelector('.report-wrapper').removeEventListener('animationend', slideFromRight)
+
+  }
+
+}
+
+function reportClose() {
+
+  document.querySelector('.report-form').classList.remove('slideFromRight');
+  document.querySelector('.report-form').classList.add('slideToRight');
+
+  document.querySelector('.report-form').addEventListener('animationend', slideToRight);
+
+  function slideToRight() {
+
+    document.querySelector('.report-form').classList.remove('form-s');
+    document.querySelector('.report-wrapper').classList.add('ascend');
+
+    document.querySelector('.report-wrapper').addEventListener('animationend', ascend);
+
+    function ascend() {
+
+      clearReportInput();
+
+      document.querySelector('.report-form').classList.remove('slideToRight');
+    
+      document.querySelector('.report-form').removeEventListener('animationend', slideToRight);
+
+      document.querySelector('.report-wrapper').removeEventListener('animationend', ascend);
+
+      setTimeout(() => {
+        document.querySelector('.report-wrapper').classList.remove('ascend');
+        document.querySelector('.report-wrapper').classList.remove('report-wrapper-s');
+        setTimeout(() => document.querySelector('.report').disabled = false, 50);
+      }, 200);
+
+    }
+
+  }
+
+}
+
 // Arrow Functions
 
 searchInput.onkeyup = e => {
@@ -616,6 +902,121 @@ searchInput.onkeyup = e => {
 
 }
 
+document.querySelector('select').onclick = e => {
+
+  selectedValue = e.target.value.toLowerCase();
+
+  mainStr =  reportform.firstElementChild.textContent = ' Make a ' + selectedValue;
+
+  reportStr = `Inlude the name of the game's broken download link <br> ( e.g : Assassin's Creed : Bloodline ) <br> Or <br>
+  Copy & paste the broken game download link.`;
+
+  messageStr = `Message me instead?`;
+
+  requestStr = `If you have something in mind to suggest or should be added then don't hesitate to state your message. Thanks!`;
+
+  otherStr = `Your choice`;
+
+  switch(selectedValue == selectedValue) {
+
+    case selectedValue == 'report': 
+
+      document.querySelector('.report-form').firstElementChild.nextElementSibling.innerHTML = reportStr;
+
+      fName.classList.add('hide');
+
+      lName.classList.add('hide');
+
+      rName.classList.add('hide');
+
+      gName.classList.remove('hide');
+
+      gName.classList.remove('red');
+
+      gName.classList.remove('fred');
+
+      gName.placeholder = 'Game Name ( Paste the link )';
+
+      _email.placeholder = 'Email ( Be notified if the link is fixed - Optional )';
+      
+      break;
+    
+    case selectedValue == 'message': 
+    
+      document.querySelector('.report-form').firstElementChild.nextElementSibling.innerHTML = messageStr;
+
+      gName.classList.add('hide');
+
+      rName.classList.add('hide');
+
+      fName.classList.remove('hide');
+
+      lName.classList.remove('hide');
+
+      _email.classList.remove('hide');
+
+      _email.classList.remove('red');
+
+      _email.classList.remove('fred');
+
+      _email.placeholder = 'Email ( Required )';
+
+      _message.placeholder = ' Your Message Here';
+
+      break;
+
+    case selectedValue == 'request': 
+
+      document.querySelector('.report-form').firstElementChild.nextElementSibling.innerHTML = requestStr;
+
+      fName.classList.add('hide');
+
+      lName.classList.add('hide');
+
+      gName.classList.add('hide');
+
+      rName.value = '';
+
+      rName.classList.remove('hide');
+
+      rName.placeholder = 'Game Name ( PPSSPP game only )';
+
+      _email.placeholder = 'Email ( Be notified if the game is added - Optional )';
+
+      break;
+
+    case selectedValue == 'other': 
+
+      document.querySelector('.report-form').firstElementChild.nextElementSibling.innerHTML = otherStr;
+
+      reportform.firstElementChild.textContent = ' Other ';
+
+      fName.classList.remove('hide');
+
+      lName.classList.remove('hide');
+
+      _email.classList.remove('hide');
+
+      gName.classList.add('hide');
+
+      rName.value = '';
+
+      rName.classList.remove('hide');
+
+      rName.placeholder = 'Your Own Subject';
+
+      _email.placeholder = 'Email';
+
+      _message.placeholder = ' Your Message Here';
+
+      break;
+
+    default: throw Error('Invalid!');
+
+  }
+
+}
+
 btns.forEach(btn => {
 
   btn.onclick = e => {
@@ -645,6 +1046,38 @@ btns.forEach(btn => {
       
         false;
         
+        break;
+
+      case ranger.classList.contains('report'): 
+
+        ranger.disabled = true;
+      
+        ranger.classList.add('clicked');
+
+        setTimeout(() => ranger.classList.remove('clicked'), 50);
+
+        reportOpen();
+
+        break;
+
+      case ranger.classList.contains('gNameResult'):
+
+        ranger.classList.add('clicked');
+
+        setTimeout(() => ranger.classList.remove('clicked'));
+
+        gName.value = ranger.innerText;
+
+        gName.classList.remove('orange');
+        
+        gName.classList.remove('red');
+
+        gName.classList.add('green');
+
+        document.querySelector('.gNameResult').innerText = '';
+
+        document.querySelector('.gNameResult').classList.remove('gNameResult-s');
+
         break;
 
       case ranger.classList.contains('game-detail-c'): 
@@ -678,6 +1111,18 @@ btns.forEach(btn => {
             resultList = document.querySelectorAll('.result-list');
 
             resultList.forEach(result => result.remove());
+          
+          }, 300);
+
+        } else if(ranger.classList.contains('report-wrapper-c')) {
+
+          ranger.classList.add('clicked');
+
+          setTimeout(() => ranger.classList.remove('clicked'), 50);
+
+          setTimeout(() => {
+
+            reportClose();
           
           }, 300);
 
@@ -729,6 +1174,25 @@ images2.forEach(imgOnlick2 => {
 
 })
 
+
+All_Inputs.forEach(inputs => {
+
+  inputs.onfocus = e => {
+
+    gvalue = gName.value.toLowerCase().replace(/[\W\s]*/g, '');
+
+    ppssppGameLists.map(look => look.Download_Link.replace(/[\W\s]*/g, '') == gvalue ? gName.classList.add('green') : '');
+
+    currentFocus = e.currentTarget.name;
+
+    Game_Name_Validation();
+      
+    Email_Validation();
+
+  }
+
+})
+
 previewImage.onmousemove = e => {
 
   if(e.clientY < 280) return document.querySelector('.preview-image-c').classList.add('peekaboo');
@@ -743,3 +1207,9 @@ document.querySelector('.search-box-result').onmousemove = e => {
 
 }
 
+document.querySelector('.report-wrapper').onmousemove = e => {
+
+  if(e.clientY < 250) return document.querySelector('.report-wrapper-c').classList.add('peekaboo');
+  return document.querySelector('.report-wrapper-c').classList.remove('peekaboo');;
+
+}
