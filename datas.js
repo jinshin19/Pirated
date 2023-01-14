@@ -120,7 +120,7 @@ const data1 = new Datas
   'Action-Adventure, Stealth',
 
   // Download Link
-  '#'
+  'https://testingtesting.com'
 )
 
 const data2 = new Datas
@@ -156,7 +156,7 @@ const data2 = new Datas
   'Action Hack and slash, Fighting Beat em up',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data3 = new Datas
@@ -192,7 +192,7 @@ const data3 = new Datas
   'Platform, Adventure',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data4 = new Datas
@@ -228,7 +228,7 @@ const data4 = new Datas
   'Action-Adventure, Hack \'N Slash',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data5 = new Datas
@@ -264,7 +264,7 @@ const data5 = new Datas
   'Fighting Game, Action Game',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data6 = new Datas
@@ -300,7 +300,7 @@ const data6 = new Datas
   'Action-Role-Playing, Action-Adventure',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data7 = new Datas
@@ -336,7 +336,7 @@ const data7 = new Datas
   'Fighting, Adventure, Action',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data8 = new Datas
@@ -372,7 +372,7 @@ const data8 = new Datas
   'Action Role-Playing, Adventure',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data9 = new Datas
@@ -408,7 +408,7 @@ const data9 = new Datas
   'Action Role-Playing, Adventure',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data10 = new Datas
@@ -444,7 +444,7 @@ const data10 = new Datas
   'Action-Adventure Game, Hack \'N Slash',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data11 = new Datas
@@ -480,7 +480,7 @@ const data11 = new Datas
   'Action-Adventure Game, Hack \'N Slash',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data12 = new Datas
@@ -516,7 +516,7 @@ const data12 = new Datas
   'Action-Adventure Game, Action Role-Playing',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data13 = new Datas
@@ -552,7 +552,7 @@ const data13 = new Datas
   'Action-Adventure Game, Action Role-Playing',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data14 = new Datas
@@ -588,7 +588,7 @@ const data14 = new Datas
   'Racing, Adventure',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data15 = new Datas
@@ -624,7 +624,7 @@ const data15 = new Datas
   'Action-Adventure, Fighting Game',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data16 = new Datas
@@ -660,7 +660,7 @@ const data16 = new Datas
   'Action-Adventure Game, Action Role-Playing',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data17 = new Datas
@@ -696,7 +696,7 @@ const data17 = new Datas
   'Action-Adventure Game, Action Role-Playing',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data18 = new Datas
@@ -732,7 +732,7 @@ const data18 = new Datas
   'Action-Adventure Game, Survival Horror',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data19 = new Datas
@@ -768,7 +768,7 @@ const data19 = new Datas
   'Action, Fighting, PVP',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data20 = new Datas
@@ -804,7 +804,7 @@ const data20 = new Datas
   'Action-Adventure Game, Action Role-Playing',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data21 = new Datas
@@ -840,7 +840,7 @@ const data21 = new Datas
   'Action-Adventure Game, Fighting',
   
   // Download_Link
-  '#'
+  'link.link.link'
 )
 
 const data22 = new Datas
@@ -876,7 +876,43 @@ const data22 = new Datas
   'Action-Adventure Game, Fighting',
   
   // Download_Link
-  '#'
+  'link.link.link'
+)
+
+const data23 = new Datas
+(
+  // Main Picture
+  '',
+    
+  // Screenshots
+  ['mhp1.jpg', 'mhp2.png', 'mhp1.jpg', 'mhp2.png'],
+    
+  // Title
+  'Up',
+    
+  // Summary
+  '',
+    
+  // File_Name
+  'the-warriors.iso',
+    
+  // File_Size
+  '',
+    
+  // File_Type
+  'ISO',
+  
+  // Region
+  'United States',
+  
+  // Language
+  'English, Europe, Japanese',
+  
+  // Genre
+  'Action-Adventure Game, Fighting',
+  
+  // Download_Link
+  'https://ibangwebsite.gg'
 )
 
 // const data23 = new Datas
@@ -912,7 +948,7 @@ const data22 = new Datas
 //   'Action-Adventure Game, Fighting',
   
 //   // Download_Link
-//   '#'
+//   'link.link.link'
 // )
 
 
