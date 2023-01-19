@@ -180,8 +180,18 @@ section .games-wrapper .boxes button:hover {
   background: linear-gradient(to bottom right, rgb(71, 253, 71), rgb(2, 180, 2), rgb(24, 248, 24));
 }
 
-.game-detail .cols-2 table td a.donate:hover {
+.game-detail .cols-2 table td .donate:hover {
   background: linear-gradient(to bottom right, rgb(83, 83, 252),#2f2fff,rgb(34, 34, 243));
+}
+
+footer .links .link-icons:hover {
+  transform: scale(.97);
+}
+
+/* */
+
+nav ul .a1.rotate {
+  animation: rotate .5s ease-in-out 1;
 }
 
 .clicked {
@@ -362,7 +372,6 @@ nav ul li .a1 {
   border-radius: 100em;
   padding: 5px;
   display: block;
-  animation: rotate .5s ease-in-out 1;
 }
 
 nav ul li .a1 button {
@@ -387,7 +396,7 @@ nav ul li .a1 button {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: inherit;
+  color: white;
 }
 
 .report-wrapper.report-wrapper-s {
@@ -605,12 +614,70 @@ header h1 {
   font-family: poppins-b;
 }
 
-header ul li:nth-child(odd) {
-  padding: 10px 0px 5px 10px;
+header a {
+  color: rgb(21, 5, 255);
+  text-decoration: underline;
 }
 
-header ul li:nth-child(even) {
-  padding: 0px 0px 15px 20px;
+header ul {
+  text-align: center;
+}
+
+header ul li:nth-child(1) h3,
+header ul li:nth-child(2) h3,
+header ul li:nth-child(5) h3 {
+  padding-top: 15px;
+}
+
+header ul li:nth-child(1) p,
+header ul li:nth-child(2) p,
+header ul li:nth-child(5) p {
+  padding-bottom: 15px;
+}
+
+header ul li {
+  margin: 25px auto;
+  width: 95%;
+  box-shadow: -1px 1px 4px rgb(158, 158, 158);
+  border-radius: 5px;
+  background: rgb(126, 16, 16);
+  color: white;
+  padding: 0px;
+}
+
+header ul li .how1,
+header ul li .how2,
+header ul li .how3 {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background: rgb(255, 255, 255);
+}
+
+header ul li .how1 img,
+header ul li .how2 img,
+header ul li .how3 img {
+  border-radius: 5px;
+  margin: 20px 0px;
+  box-shadow: -1px 1px 4px rgb(160, 160, 160);
+}
+
+header ul li .how1 img,
+header ul li .how3 img {
+  width: 45%;
+}
+
+header ul li .how2 img {
+  width: 23%;
+}
+
+header ul li:nth-child(3),
+header ul li:nth-child(4),
+header ul li:nth-child(6) {
+  padding: 15px 0px;
 }
 
 footer {
@@ -801,16 +868,6 @@ section .games-wrapper ul li button {
 
 .search-box-result .search-box-c.peekaboo {
   transform: none;
-}
-
-.color-scheme {
-  transition: .5s ease-in-out;
-}
-
-.color-scheme.moon {
-  background: url(icons/moon-icon.png) no-repeat center;
-  background-size: cover;
-  display: block;
 }
 
 /** Preview Image Section **/
@@ -1033,7 +1090,8 @@ section .games-wrapper ul li button {
   box-shadow: -1px 0px 1px rgb(94, 94, 94);
 }
 
-.game-detail .cols-2 table td a {
+.game-detail .cols-2 table td a,
+.game-detail .cols-2 table td .donate {
   background: linear-gradient(to bottom right, rgb(71, 253, 71), green, rgb(24, 248, 24));
   color: inherit;
   padding: 5px 10px;
@@ -1042,74 +1100,138 @@ section .games-wrapper ul li button {
   margin: 0px 10px;
 }
 
-.game-detail .cols-2 table td a.donate {
+.game-detail .cols-2 table td .donate {
   background: linear-gradient(to bottom right, rgb(83, 83, 252),blue,rgb(34, 34, 243));
   box-shadow: 0px 0px 5px rgb(31, 44, 109);
+  font-size: 16px;
+  font-family: poppins-r;
+}
+
+footer {
+  width: 100%;
+  height: 4em;
+  box-shadow: 0px 0px 5px rgb(158, 158, 158);
+  background: white;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .links {
+  height: 3em;
+  width: 60%;
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .links .link-icons {
+  width: 2em;
+  height: 2em;
+  margin: 0px 20px;
+}
+
+footer .links .facebook {
+  display: block;
+  background: url(icons/fb-b.png) no-repeat center;
+  background-size: contain;
+}
+footer .links .github {
+  display: block;
+  background: url(icons/github-b.png) no-repeat center;
+  background-size: contain;
 }
 
 /** Dark Mode **/
 
-nav button.search-w {
-  background: url(icons/search-icon-w.png) no-repeat center;
-  background-size: contain;
-}
-
-nav input.font-color {
-  color: white;
-}
-
-nav.body,
-body.body {
+nav.dark-mode,
+body.dark-mode,
+footer.dark-mode
+{
   background: black;
   color: white;
 }
-
-nav .search-list.boxes-shadow {
-  box-shadow: 0px 0px 2px 0px white;
-  border-radius: 0px 0px 10px 10px;
+nav.dark-mode,
+footer.dark-mode {
+  box-shadow: 0px 0px 2px rgb(116, 116, 116);
+  background: linear-gradient(to bottom right, rgb(3, 3, 3), rgb(5, 5, 5), rgb(3, 3, 3));
 }
 
-nav ul li .a1.boxes-shadow.rotate {
-  animation: rotate2 .5s ease-in-out 1;
+nav.dark-mode .search-wrapper button {
+  background: url(icons/search-icon-w.png) no-repeat center;
+  background-size: contain;
+}
+nav.dark-mode .search-wrapper input {
+  color: white;
+}
+nav.dark-mode .controller-icon {
+  content: url(icons/controller-icon-w.png);
+}
+nav.dark-mode .warning-icon {
+  content: url(icons/warning-icon-w.png);
+}
+nav.dark-mode .search-wrapper,
+nav.dark-mode .a1 {
+  box-shadow: 0px 0px 2px white;
 }
 
-nav ul li button:nth-child(1).moon {
+nav .color-scheme.dark-mode {
   background: url(icons/moon-icon.png) no-repeat center;
   background-size: contain;
 }
 
-nav .search-wrapper.boxes-shadow,
-nav ul li .a1.boxes-shadow,
-section .games-wrapper .boxes.boxes-shadow,
-section .games-wrapper ul li button.boxes-shadow,
-.game-detail.game-detail-s.boxes-shadow {
-  box-shadow: 0px 0px 3px white;
+body.dark-mode {
+  background: linear-gradient(to bottom right, rgb(5, 5, 5), rgb(7, 7, 7), rgb(5, 5, 5));
+  color: rgb(155, 154, 154)
+}
+body.dark-mode header h1 {
+  color: rgb(255, 255, 255);
+}
+body.dark-mode header h3 {
+  color: rgb(221, 221, 221);
+}
+body.dark-mode header ul li {
+  color: rgb(199, 199, 199);
+}
+body.dark-mode header a {
+  color: rgb(13, 98, 255);
+  text-decoration: underline;
 }
 
-.delay {
-  transition: .2s ease-in-out;
+header.dark-mode ul li {
+  box-shadow: 0px 0px 2px rgb(124, 124, 124);
+  background: linear-gradient(to bottom right, rgb(8, 8, 8), rgb(14, 14, 14), rgb(2, 2, 2));
+}
+
+header.dark-mode ul li .how1,
+header.dark-mode ul li .how2,
+header.dark-mode ul li .how3 {
+  background: #ffffffef;
+}
+
+footer.dark-mode .facebook {
+  content: url(icons/fb-w.png);
+}
+footer.dark-mode .github {
+  content: url(icons/github-w.png);
+}
+
+section .games-wrapper .boxes.dark-mode,
+nav .search-list.dark-mode,
+.game-detail.dark-mode {
+  box-shadow: 0px 0px 2px rgb(146, 146, 146);
+}
+
+section .games-wrapper .boxes.dark-mode {
+  background: linear-gradient(to bottom right, rgb(3, 3, 3), rgb(8, 8, 8), rgb(3, 3, 3));
+  color: white;
 }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
+} /** End Of 1366px**/
