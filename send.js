@@ -13,6 +13,10 @@ function _success() {
 
         reportform.firstElementChild.textContent = ' Make a ' + _selected.value.toLowerCase();
 
+        document.querySelector('.submit').value= 'Submit';
+
+        document.querySelector('.submit').disabled = false;
+
       }, 1500)
 
         break;
@@ -27,6 +31,10 @@ function _success() {
         reportform.firstElementChild.classList.remove('fgreen');
 
         reportform.firstElementChild.textContent = ' Make a ' + _selected.value.toLowerCase();
+
+        document.querySelector('.submit').value= 'Submit';
+
+        document.querySelector('.submit').disabled = false;
 
       }, 1500)
 
@@ -43,6 +51,10 @@ function _success() {
 
         reportform.firstElementChild.textContent = ' Make a ' + _selected.value.toLowerCase();
 
+        document.querySelector('.submit').value= 'Submit';
+
+        document.querySelector('.submit').disabled = false;
+
       }, 1500)
 
         break;
@@ -57,6 +69,10 @@ function _success() {
         reportform.firstElementChild.classList.remove('fgreen');
 
         reportform.firstElementChild.textContent = _selected.value;
+
+        document.querySelector('.submit').value= 'Submit';
+
+        document.querySelector('.submit').disabled = false;
 
       }, 1500)
 
@@ -179,7 +195,6 @@ function send(body) {
   })
 
   .then(() => {
-    
 
     _success();
 
@@ -199,11 +214,7 @@ function send(body) {
       
     document.querySelector('.gNameResult').classList.remove('gNameResult-s');
 
-  }).then(() => {
-
-    _success();
-
-  });
+  })
 
 }
 
@@ -227,6 +238,10 @@ document.querySelector('.submit').onclick = e => {
         Email: ${_email.value.toLowerCase()} Let me know if the link is fixed. <br> 
         Message: ${_message.value} <br>`;
 
+        e.currentTarget.disabled = true;
+
+        document.querySelector('.submit').value = 'Please Wait';
+
         send(report);
 
       } else {
@@ -248,6 +263,10 @@ document.querySelector('.submit').onclick = e => {
         This is my email: ${_email.value.toLowerCase()} <br> 
         Message: ${_message.value} <br>`;
 
+        e.currentTarget.disabled = true;
+
+        document.querySelector('.submit').value = 'Please Wait';
+
         send(message);
 
       } else {
@@ -267,9 +286,13 @@ document.querySelector('.submit').onclick = e => {
         Email: ${_email.value.toLowerCase()} let me know if the game I requested is added! <br> 
         Message: ${_message.value} <br>`;
 
-      send(request);
+        e.currentTarget.disabled = true;
 
-      break;
+        document.querySelector('.submit').value = 'Please Wait';
+
+        send(request);
+
+          break;
 
     case _selected.value == 'Other': 
     
@@ -281,10 +304,14 @@ document.querySelector('.submit').onclick = e => {
         Lastname: ${lName.value} <br> 
         Email: ${_email.value.toLowerCase()} an email sent to you! <br> 
         Message: ${_message.value} <br>`;
-      
-      send();
 
-      break;
+        e.currentTarget.disabled = true;
+
+        document.querySelector('.submit').value = 'Please Wait';
+      
+        send();
+
+        break;
 
     default: alert('Failed To Submit');
 
