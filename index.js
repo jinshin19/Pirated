@@ -15,8 +15,7 @@ const fName = reportform['fname'];
 const lName = reportform['lname'];
 const _email = reportform['email'];
 const _message = reportform['text'];
-let _items = document.querySelectorAll('.search-wrapper, .search-list, .a1, .game-detail');
-let __items = document.querySelectorAll('body, nav');
+let _items = document.querySelectorAll('.search-list, .game-detail');
 let imgs = document.querySelectorAll('.img');
 let path = /^.*[\\\/]/;
 let num = 0;
@@ -34,63 +33,90 @@ let getSet = [];
 
 function color_scheme() {
 
-  let 
-    boxes_shadow = 'boxes-shadow',
-    _body = 'body',
-    _moon = 'moon',
-    _rotate = 'rotate',
-    search_w = 'search-w',
-    font_color = 'font-color',
-    controller_icon = 'controller-icon-w.png',
-    warning_icon = 'warning-icon-w.png';
+  let _dark_mode_ = 'dark-mode';
 
-  ranger.classList.toggle('moon');
+  ranger.classList.toggle('dark-mode');
 
-  if(ranger.classList.contains('moon')) {
+  if(ranger.classList.contains('dark-mode')) {
 
-    boxes = document.querySelectorAll('.boxes, .viewBtn');
+    boxes = document.querySelectorAll('.boxes');
 
-    color.push(boxes_shadow, _body, _moon, _rotate, search_w, font_color, controller_icon, warning_icon);
+    color.push(_dark_mode_);
 
     localStorage.setItem('color', JSON.stringify(color));
 
-    boxes.forEach(box => box.classList.add('boxes-shadow'));
+    // Dom Calls
 
-    _items.forEach(item => item.classList.add('boxes-shadow'));
+    document.querySelector('.color-scheme').classList.add('dark-mode');
 
-    __items.forEach(item => item.classList.add(_body));
-  
-    document.querySelector('.a1').classList.add(_rotate);
-  
-    document.querySelector('.search-button').classList.add(search_w);
-  
-    searchInput.classList.add(font_color);
-  
-    document.querySelector('.controller-icon').src = 'icons/' + controller_icon;
-  
-    document.querySelector('.warning-icon').src = 'icons/' + warning_icon;
+    document.querySelector('body').classList.add('dark-mode');
+
+    document.querySelector('nav').classList.add('dark-mode');
+
+    document.querySelector('footer').classList.add('dark-mode');
+
+    document.querySelector('.controller-icon').classList.add('dark-mode');
+    
+    document.querySelector('.warning-icon').classList.add('dark-mode');
+    
+    document.querySelector('.facebook').classList.add('dark-mode');
+    
+    document.querySelector('.github').classList.add('dark-mode');
+
+    reportform.classList.add('dark-mode');
+
+    _items.forEach(item => item.classList.add('dark-mode'));
+    
+    boxes.forEach(box => box.classList.add('dark-mode'));
+
+    if(document.URL == 'http://127.0.0.1:5500/index.html' || document.URL == 'https://jinshin19.github.io/Pirated/index.html') {
+
+      document.querySelector('header').classList.add('dark-mode');
+
+    } else {
+
+      false;
+
+    }
+    
 
   } else {
 
-    boxes.forEach(box => box.classList.remove('boxes-shadow'));
-
-    _items.forEach(item => item.classList.remove(boxes_shadow));
-
-    __items.forEach(item => item.classList.remove(_body));
-  
-    document.querySelector('.a1').classList.remove(_rotate);
-  
-    document.querySelector('.search-button').classList.remove(search_w);
-  
-    searchInput.classList.remove(font_color);
-  
-    document.querySelector('.controller-icon').src = 'icons/controller-icon.png';
-  
-    document.querySelector('.warning-icon').src = 'icons/warning-icon-b.png';
+    color.pop();
 
     localStorage.clear();
 
-    color = color.filter(color => color == values);
+    document.querySelector('.color-scheme').classList.remove('dark-mode');
+
+    document.querySelector('body').classList.remove('dark-mode');
+
+    document.querySelector('nav').classList.remove('dark-mode');
+
+    document.querySelector('footer').classList.remove('dark-mode');
+
+    document.querySelector('.controller-icon').classList.remove('dark-mode');
+    
+    document.querySelector('.warning-icon').classList.remove('dark-mode');
+    
+    document.querySelector('.facebook').classList.remove('dark-mode');
+    
+    document.querySelector('.github').classList.remove('dark-mode');
+    
+    reportform.classList.remove('dark-mode');
+
+    _items.forEach(item => item.classList.remove('dark-mode'));
+    
+    boxes.forEach(box => box.classList.remove('dark-mode'));
+
+    if(document.URL == 'http://127.0.0.1:5500/index.html' || document.URL == 'https://jinshin19.github.io/Pirated/index.html') {
+
+      document.querySelector('header').classList.remove('dark-mode');
+
+    } else {
+
+      false;
+
+    }
 
   }
 
@@ -440,25 +466,39 @@ window.onload = () => {
 
   if(color.length > 0) {
 
-    boxes = document.querySelectorAll('.boxes, .viewBtn');
+    boxes = document.querySelectorAll('.boxes');
 
-    boxes.forEach(box => box.classList.add(color[0]));
+    document.querySelector('.color-scheme').classList.add(color.toString());
 
-    _items.forEach(item => item.classList.add(color[0]));
+    document.querySelector('body').classList.add(color.toString());
 
-    __items.forEach(item => item.classList.add(color[1]));
+    document.querySelector('nav').classList.add(color.toString());
 
-    document.querySelector('.a1').firstElementChild.classList.add(color[2]);
-  
-    document.querySelector('.a1').classList.add(color[3]);
-  
-    document.querySelector('.search-button').classList.add(color[4]);
-  
-    searchInput.classList.add(color[5]);
-  
-    document.querySelector('.controller-icon').src = 'icons/' + color[6];
-  
-    document.querySelector('.warning-icon').src = 'icons/' + color[7];
+    document.querySelector('footer').classList.add(color.toString());
+
+    document.querySelector('.controller-icon').classList.add(color.toString());
+    
+    document.querySelector('.warning-icon').classList.add(color.toString());
+    
+    document.querySelector('.facebook').classList.add(color.toString());
+    
+    document.querySelector('.github').classList.add(color.toString());
+    
+    reportform.classList.add(color.toString());
+
+    _items.forEach(item => item.classList.add(color.toString()));
+    
+    boxes.forEach(box => box.classList.add(color.toString()));
+
+    if(document.URL == 'http://127.0.0.1:5500/index.html' || document.URL == 'https://jinshin19.github.io/Pirated/index.html') {
+
+      document.querySelector('header').classList.add(color.toString());
+
+    } else {
+
+      false;
+
+    }
 
   } else {
 
@@ -1021,7 +1061,7 @@ btns.forEach(btn => {
 
   btn.onclick = e => {
 
-    ranger = e.target;
+    ranger = e.currentTarget;
 
     switch(ranger == ranger) {
 
@@ -1130,9 +1170,15 @@ btns.forEach(btn => {
 
         break;
 
-      case ranger.classList.contains('color-scheme'): color_scheme();
+      case ranger.classList.contains('color-scheme'):
+        
+        ranger.parentElement.classList.add('rotate');
 
-        break;
+        setTimeout(() => ranger.parentElement.classList.remove('rotate'), 500);
+
+        color_scheme();
+
+          break;
       
       default: alert(ranger);
 
@@ -1209,7 +1255,17 @@ document.querySelector('.search-box-result').onmousemove = e => {
 
 document.querySelector('.report-wrapper').onmousemove = e => {
 
-  if(e.clientY < 250) return document.querySelector('.report-wrapper-c').classList.add('peekaboo');
-  return document.querySelector('.report-wrapper-c').classList.remove('peekaboo');;
+  if(document.querySelector('.submit').disabled == true) {
+
+    '';
+
+  } else {
+
+    if(e.clientY < 250) return document.querySelector('.report-wrapper-c').classList.add('peekaboo');
+    return document.querySelector('.report-wrapper-c').classList.remove('peekaboo');;
+
+  }
+
+  
 
 }
