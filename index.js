@@ -69,7 +69,7 @@ function color_scheme() {
     
     boxes.forEach(box => box.classList.add('dark-mode'));
 
-    if(document.URL == 'http://127.0.0.1:5500/index.html' || document.URL == 'https://jinshin19.github.io/Pirated/index.html') {
+    if(document.URL == 'http://127.0.0.1:5500/index.html' || document.URL == 'https://jinshin19.github.io/Pirated/' || document.URL == 'https://jinshin19.github.io/Pirated/index.html') {
 
       document.querySelector('header').classList.add('dark-mode');
 
@@ -108,7 +108,7 @@ function color_scheme() {
     
     boxes.forEach(box => box.classList.remove('dark-mode'));
 
-    if(document.URL == 'http://127.0.0.1:5500/index.html' || document.URL == 'https://jinshin19.github.io/Pirated/index.html') {
+    if(document.URL == 'http://127.0.0.1:5500/index.html' || document.URL == 'https://jinshin19.github.io/Pirated/' || document.URL == 'https://jinshin19.github.io/Pirated/index.html') {
 
       document.querySelector('header').classList.remove('dark-mode');
 
@@ -490,7 +490,7 @@ window.onload = () => {
     
     boxes.forEach(box => box.classList.add(color.toString()));
 
-    if(document.URL == 'http://127.0.0.1:5500/index.html' || document.URL == 'https://jinshin19.github.io/Pirated/index.html') {
+    if(document.URL == 'http://127.0.0.1:5500/index.html' || document.URL == 'https://jinshin19.github.io/Pirated/' || document.URL == 'https://jinshin19.github.io/Pirated/index.html') {
 
       document.querySelector('header').classList.add(color.toString());
 
