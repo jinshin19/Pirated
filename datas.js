@@ -234,7 +234,7 @@ const data4 = new Datas
 const data5 = new Datas
 (
   // Main Picture
-  'gw2.jpg',
+  'gw2m.jpg',
     
   // Screenshots
   ['gw2-1.jpg', 'gw2-2.jpg', 'gw2-3.jpg', 'gw2-4.jpg'],

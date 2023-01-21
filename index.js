@@ -73,13 +73,14 @@ function color_scheme() {
 
       document.querySelector('header').classList.add('dark-mode');
 
-    } else {
+    }
 
-      false;
+    if(document.URL == 'http://127.0.0.1:5500/games.html' || document.URL == 'https://jinshin19.github.io/Pirated/games.html' || document.URL == 'https://jinshin19.github.io/Pirated/games.html') {
+
+      document.querySelector('.support-wrapper').classList.add('dark-mode');
 
     }
     
-
   } else {
 
     color.pop();
@@ -112,9 +113,11 @@ function color_scheme() {
 
       document.querySelector('header').classList.remove('dark-mode');
 
-    } else {
+    }
 
-      false;
+    if(document.URL == 'http://127.0.0.1:5500/games.html' || document.URL == 'https://jinshin19.github.io/Pirated/games.html' || document.URL == 'https://jinshin19.github.io/Pirated/games.html') {
+
+      document.querySelector('.support-wrapper').classList.remove('dark-mode');
 
     }
 
@@ -242,6 +245,8 @@ function createElement() {
         setTimeout(() => e.target.classList.remove('clicked', 50));
   
         onSet(e.target.parentElement.parentElement.firstElementChild.firstElementChild.textContent);
+
+        console.clear();
   
         gameDetailPanelOpen();
   
@@ -494,9 +499,11 @@ window.onload = () => {
 
       document.querySelector('header').classList.add(color.toString());
 
-    } else {
+    }
 
-      false;
+    if(document.URL == 'http://127.0.0.1:5500/games.html' || document.URL == 'https://jinshin19.github.io/Pirated/games.html' || document.URL == 'https://jinshin19.github.io/Pirated/games.html') {
+
+      document.querySelector('.support-wrapper').classList.add(color.toString());
 
     }
 
@@ -1179,8 +1186,178 @@ btns.forEach(btn => {
         color_scheme();
 
           break;
+
+      case ranger.classList.contains('donate'):
+
+        ranger.classList.add('clicked');
+
+        setTimeout(() => ranger.classList.remove('clicked'), 50);
+
+        setTimeout(() => document.querySelector('.support-wrapper').classList.add('show'), 150);
+
+        createPaypal();
+
+          break;
+
+      case ranger.classList.contains('buy-me-coffee'):
+
+        ranger.classList.add('clicked');
+
+        setTimeout(() => ranger.classList.remove('clicked'), 50);
+
+        setTimeout(() => {
+          document.querySelector('.b').classList.add('show');
+          document.querySelector('.a').classList.remove('show');
+          document.querySelector('.c').classList.remove('show');
+          document.querySelector('.buy-me-coffee').parentElement.classList.add('hide');
+          setTimeout(() => paypalButton(), 300);
+        }, 200);
+
+          break;
+
+      case ranger.classList.contains('coffee-close'):
+
+        ranger.classList.add('clicked');
+
+        setTimeout(() => ranger.classList.remove('clicked'), 50);
+
+        document.querySelector('head').firstElementChild.remove();
+
+        localStorage.removeItem('__paypal_storage__');
+
+        setTimeout(() => {
+          
+          document.querySelector('.a').classList.add('show');
+          document.querySelector('.b').classList.remove('show');
+          document.querySelector('.c').classList.remove('show');
+          document.querySelector('.buy-me-coffee').parentElement.classList.remove('hide');
+          document.querySelector('.coffee-price').innerText = document.querySelector('.coffee-1').textContent;
+          document.querySelector('.coffee-1').classList.add('a2');
+          document.querySelector('.coffee-2').classList.remove('a2');
+          document.querySelector('.coffee-3').classList.remove('a2');
+          document.querySelector('.coffee-4').classList.remove('a2');
+          document.querySelector('.coffee-5').classList.remove('a2');
+        }, 200);
+
+          break;
+
+      case ranger.classList.contains('coffee-wrapper-c'):
+
+        ranger.classList.add('clicked');
+
+        setTimeout(() => ranger.classList.remove('clicked'), 50);
+
+        setTimeout(() => {
+          document.querySelector('.a').classList.add('show');
+          document.querySelector('.b').classList.remove('show');
+          document.querySelector('.c').classList.remove('show');
+          document.querySelector('.buy-me-coffee').parentElement.classList.remove('hide');
+          document.querySelector('.support-wrapper').classList.remove('show')
+        }, 200);
+
+          break;
+
+      case ranger.classList.contains('coffee-1'):
+
+        ranger.classList.add('clicked');
+
+        setTimeout(() => ranger.classList.remove('clicked'), 50);
+
+        ranger.classList.add('a2');
+        document.querySelector('.coffee-price').innerText = ranger.textContent;
+        document.querySelector('.coffee-2').classList.remove('a2');
+        document.querySelector('.coffee-3').classList.remove('a2');
+        document.querySelector('.coffee-4').classList.remove('a2');
+        document.querySelector('.coffee-5').classList.remove('a2');
+        document.querySelector('#button-1').classList.add('show');
+        document.querySelector('#button-2').classList.remove('show');
+        document.querySelector('#button-3').classList.remove('show');
+        document.querySelector('#button-4').classList.remove('show');
+        document.querySelector('#button-5').classList.remove('show');
+
+          break;
+
+      case ranger.classList.contains('coffee-2'):
+
+        ranger.classList.add('clicked');
+
+        setTimeout(() => ranger.classList.remove('clicked'), 50);
+
+        ranger.classList.add('a2');
+        document.querySelector('.coffee-price').innerText = ranger.textContent;
+        document.querySelector('.coffee-1').classList.remove('a2');
+        document.querySelector('.coffee-3').classList.remove('a2');
+        document.querySelector('.coffee-4').classList.remove('a2');
+        document.querySelector('.coffee-5').classList.remove('a2');
+        document.querySelector('#button-2').classList.add('show');
+        document.querySelector('#button-1').classList.remove('show');
+        document.querySelector('#button-3').classList.remove('show');
+        document.querySelector('#button-4').classList.remove('show');
+        document.querySelector('#button-5').classList.remove('show');
+
+          break;
+
+      case ranger.classList.contains('coffee-3'):
+
+        ranger.classList.add('clicked');
+
+        setTimeout(() => ranger.classList.remove('clicked'), 50);
+
+        ranger.classList.add('a2');
+        document.querySelector('.coffee-price').innerText = ranger.textContent;
+        document.querySelector('.coffee-1').classList.remove('a2');
+        document.querySelector('.coffee-2').classList.remove('a2');
+        document.querySelector('.coffee-4').classList.remove('a2');
+        document.querySelector('.coffee-5').classList.remove('a2');
+        document.querySelector('#button-3').classList.add('show');
+        document.querySelector('#button-1').classList.remove('show');
+        document.querySelector('#button-2').classList.remove('show');
+        document.querySelector('#button-4').classList.remove('show');
+        document.querySelector('#button-5').classList.remove('show');
+
+          break;
+
+      case ranger.classList.contains('coffee-4'):
+
+        ranger.classList.add('clicked');
+
+        setTimeout(() => ranger.classList.remove('clicked'), 50);
+
+        ranger.classList.add('a2');
+        document.querySelector('.coffee-price').innerText = ranger.textContent;
+        document.querySelector('.coffee-1').classList.remove('a2');
+        document.querySelector('.coffee-2').classList.remove('a2');
+        document.querySelector('.coffee-3').classList.remove('a2');
+        document.querySelector('.coffee-5').classList.remove('a2');
+        document.querySelector('#button-4').classList.add('show');
+        document.querySelector('#button-1').classList.remove('show');
+        document.querySelector('#button-2').classList.remove('show');
+        document.querySelector('#button-3').classList.remove('show');
+        document.querySelector('#button-5').classList.remove('show');
+
+          break;
+
+      case ranger.classList.contains('coffee-5'):
+
+        ranger.classList.add('clicked');
+
+        setTimeout(() => ranger.classList.remove('clicked'), 50);
+
+        ranger.classList.add('a2');
+        document.querySelector('.coffee-price').innerText = ranger.textContent;
+        document.querySelector('.coffee-1').classList.remove('a2');
+        document.querySelector('.coffee-2').classList.remove('a2');
+        document.querySelector('.coffee-3').classList.remove('a2');
+        document.querySelector('.coffee-4').classList.remove('a2');
+        document.querySelector('#button-5').classList.add('show');
+        document.querySelector('#button-1').classList.remove('show');
+        document.querySelector('#button-2').classList.remove('show');
+        document.querySelector('#button-3').classList.remove('show');
+        document.querySelector('#button-4').classList.remove('show');
+
+          break;
       
-      default: alert(ranger);
+      default: alert('This is not available right now');
 
     }
 
@@ -1219,7 +1396,6 @@ images2.forEach(imgOnlick2 => {
   }
 
 })
-
 
 All_Inputs.forEach(inputs => {
 
@@ -1266,6 +1442,10 @@ document.querySelector('.report-wrapper').onmousemove = e => {
 
   }
 
-  
+}
 
+window.onresize = function(resize) {
+  if(resize.target.outerWidth < 1365) {
+      alert('This website is not responsive yet');
+  }
 }
